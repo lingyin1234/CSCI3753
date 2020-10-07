@@ -1,0 +1,46 @@
+Lingyin Lu
+CU Identity:106992297
+CSCI3753: PA2
+4/10/2020
+lilu3964@colorado.edu
+
+File Description:
+	Makefile
+	pa2_char_driver.c
+	test.c
+
+
+1. To create a device file
+	sudo mknod -m 777 /dev/simple_character_device c 240 0
+
+1. Install the module
+	make -C /lib/modules/$(uname -r)/build M=$PWD
+	sudo insmod pa2_char_driver.ko
+
+
+
+
+2. To verify the installation
+	dmesg
+	lsmod | grep pa2
+	ls -l /dev/simple_character_device
+	
+3. To run a test program
+	gcc test.c
+	./a.out
+
+
+4. To remove the module 
+	sudo rmmod pa2_char_driver
+
+
+How to do in test program:
+	'r' to read from device
+	'w' to write to device
+	's' to seek from device
+	'e' to exit from device
+More details will be cover through progress. 
+
+
+
+
